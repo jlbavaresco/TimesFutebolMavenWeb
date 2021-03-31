@@ -15,46 +15,19 @@
                                  icon="pi pi-plus"
                                  update="formEdicao"
                                  process="@this"
-                                 oncomplete="PF('dlg').show();"/>
-                <div align="center">
-                    <p:panelGrid columns="11">
-                        <p:outputLabel value="Ordem:"/>
-                        <p:selectOneMenu value="#{controleEstado.dao.ordemAtual}"
-                                         converter="#{controleEstado.dao.converterOrdem}">
-                            <f:selectItems value="#{controleEstado.dao.listaOrdem}"
-                                var="ord" itemValue="#{ord.atributo}"/>
-                            <p:ajax update="listagem"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="Filtro:"/>
-                        <p:inputText value="#{controleEstado.dao.filtro}">
-                          
-                        </p:inputText>
-                        <p:commandButton value="Filtrar" update="listagem"/>
-                        <p:outputLabel value="Máximo de objetos"/>
-                        <p:selectOneMenu value="#{controleEstado.dao.maximoObjetos}">
-                            <f:selectItem itemValue="3" itemLabel="3"/>
-                            <f:selectItem itemValue="5" itemLabel="5"/>
-                            <f:selectItem itemValue="10" itemLabel="10"/>
-                            <f:selectItem itemValue="20" itemLabel="20"/>
-                            <f:selectItem itemValue="50" itemLabel="50"/>
-                            <p:ajax update="listagem"/>
-                        </p:selectOneMenu>
-                        <p:commandButton action="#{controleEstado.dao.primeiro()}"
-                                         title="Primeiro" update="listagem"
-                                         icon="pi pi-step-backward"/>
-                        <p:commandButton action="#{controleEstado.dao.anterior()}"
-                                         title="Anterior" update="listagem"
-                                         icon="pi pi-chevron-left"/>  
-                        <p:commandButton action="#{controleEstado.dao.proximo()}"
-                                         title="Proximo" update="listagem"
-                                         icon="pi pi-chevron-right"/>                         
-                        <p:commandButton action="#{controleEstado.dao.ultimo()}"
-                                         title="Ultimo" update="listagem"
-                                         icon="pi pi-step-forward"/>                        
-                    </p:panelGrid>
-                </div>
+                                 oncomplete="PF('dlg').show();"/> 
+                <!--
                 <p:dataTable value="#{controleEstado.dao.listaTodos}" var="obj"
-                             id="listagem">
+                             id="listagem"
+                     rows="10"
+                     paginator="true"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                     rowsPerPageTemplate="5,10,{ShowAll|'All'}"                             >
+                -->
+          <p:dataTable value="#{controleEstado.dao.listaTodos}" var="obj"
+                             id="listagem"
+                     >                
                     <f:facet name="footer">
                         <p:outputLabel value="#{controleEstado.dao.mensagemNavegacao}"/>
                     </f:facet>
