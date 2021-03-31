@@ -1,5 +1,6 @@
 package br.edu.ifsul.dao;
 
+import br.edu.ifsul.converters.ConverterOrdem;
 import br.edu.ifsul.modelo.Estado;
 import java.io.Serializable;
 import javax.ejb.Stateful;
@@ -16,6 +17,15 @@ public class EstadoDAO<TIPO>  extends DAOGenerico<Estado> implements Serializabl
     public EstadoDAO(){
         super();
         classePersistente = Estado.class;
+        // definir as ordens possíveis
+        listaOrdem.add(new Ordem("id", "ID", "="));
+        listaOrdem.add(new Ordem("nome", "Nome", "like"));
+        // difinir a ordem inicial
+        ordemAtual = listaOrdem.get(1);
+        // inicializar o conversor das ordens
+        converterOrdem = new ConverterOrdem();
+        converterOrdem.setListaOrdem(listaOrdem);        
+                
     }
 
 }
