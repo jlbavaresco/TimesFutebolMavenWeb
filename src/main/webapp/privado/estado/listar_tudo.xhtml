@@ -16,7 +16,7 @@
                                  update="formEdicao"
                                  process="@this"
                                  oncomplete="PF('dlg').show();"/> 
-                <!--
+               
                 <p:dataTable value="#{controleEstado.dao.listaTodos}" var="obj"
                              id="listagem"
                      rows="10"
@@ -24,10 +24,8 @@
                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                      currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                      rowsPerPageTemplate="5,10,{ShowAll|'All'}"                             >
-                -->
-          <p:dataTable value="#{controleEstado.dao.listaTodos}" var="obj"
-                             id="listagem"
-                     >                
+                >
+                       
                     <f:facet name="footer">
                         <p:outputLabel value="#{controleEstado.dao.mensagemNavegacao}"/>
                     </f:facet>
