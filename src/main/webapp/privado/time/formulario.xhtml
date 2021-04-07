@@ -134,7 +134,7 @@
                     <div align="center">
                         <p:commandButton value="Salvar" icon="pi pi-save"
                                          actionListener="#{controleTime.salvarJogador()}"
-                                         update="tab:listaJogadores growl"
+                                         update="tab:listaJogadores growl @form"
                                          process="@form"
                     oncomplete="if(!args.validationFailed){PF('dlgJogador').hide();}"/>                                         
                     </div>
