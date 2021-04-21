@@ -12,7 +12,11 @@ import br.edu.ifsul.modelo.Posicao;
 import br.edu.ifsul.modelo.Time;
 import br.edu.ifsul.modelo.Usuario;
 import br.edu.ifsul.util.Util;
+import br.edu.ifsul.util.UtilRelatorios;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -45,6 +49,23 @@ public class ControleTime implements Serializable {
     public ControleTime(){
         
     }
+    
+    public void imprimeTimes(){
+        HashMap parametros = new HashMap();
+        UtilRelatorios.imprimeRelatorio("relatoriosTimes", parametros, dao.getListaObjetosCompleta());
+    }
+    
+    public void imprimeTime(Object id){
+        try {
+            objeto = dao.getObjectByID(id);
+            List<Time> lista = new ArrayList<>();
+            lista.add(objeto);
+            HashMap parametros = new HashMap();
+            UtilRelatorios.imprimeRelatorio("relatoriosTimes", parametros,lista);            
+        } catch (Exception e){
+            Util.mensagemInformacao("Erro ao imprimir: " + Util.getMensagemErro(e));
+        }
+    }    
     
     public void novoJogador(){
         jogador = new Jogador();
