@@ -98,7 +98,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="170" splitType="Stretch">
+		<band height="160" splitType="Stretch">
 			<rectangle>
 				<reportElement style="zebra" positionType="Float" stretchType="ElementGroupHeight" x="0" y="0" width="555" height="160" uuid="27bf6794-36dc-4d2c-99c5-ac93f6b6e996"/>
 			</rectangle>

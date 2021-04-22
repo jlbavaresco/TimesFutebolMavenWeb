@@ -37,7 +37,7 @@ public class TimeDAO<TIPO>  extends DAOGenerico<Time> implements Serializable {
     }    
     
     public List<Time> getListaObjetosCompleta(){
-        String jpql = "from Time t join fetch t.jogadores order by t.id";
+        String jpql = "select distinct t from Time t join fetch t.jogadores order by t.id";
         return em.createQuery(jpql).getResultList();
     }
 
