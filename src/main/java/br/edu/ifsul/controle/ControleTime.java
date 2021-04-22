@@ -44,6 +44,7 @@ public class ControleTime implements Serializable {
     private CidadeDAO<Cidade> daoCidade;
     private Jogador jogador;
     private Boolean novoJogador;
+    private int abaAtiva;
     
     
     public ControleTime(){
@@ -96,11 +97,13 @@ public class ControleTime implements Serializable {
     
     public void novo(){
         objeto = new Time();
+        abaAtiva = 0;
     }
     
     public void alterar(Object id){
         try {
             objeto = dao.getObjectByID(id);
+            abaAtiva = 0;
         } catch (Exception e){
             Util.mensagemInformacao("Erro ao recuperar objeto: " + Util.getMensagemErro(e));
         }
@@ -191,6 +194,14 @@ public class ControleTime implements Serializable {
 
     public void setNovoJogador(Boolean novoJogador) {
         this.novoJogador = novoJogador;
+    }
+
+    public int getAbaAtiva() {
+        return abaAtiva;
+    }
+
+    public void setAbaAtiva(int abaAtiva) {
+        this.abaAtiva = abaAtiva;
     }
 
 }

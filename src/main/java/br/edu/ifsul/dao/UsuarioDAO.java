@@ -4,6 +4,7 @@ import br.edu.ifsul.converters.ConverterOrdem;
 import br.edu.ifsul.modelo.Usuario;
 import java.io.Serializable;
 import javax.ejb.Stateful;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +29,16 @@ public class UsuarioDAO<TIPO>  extends DAOGenerico<Usuario> implements Serializa
         converterOrdem.setListaOrdem(listaOrdem);        
                 
     }
+    
+    public boolean verificaUnicidadeNomeUsuario(String nomeUsuario) throws Exception {
+        String jpql = "from Usuario where nomeUsuario = :pNomeUsuario";
+        Query query = em.createQuery(jpql);
+        query.setParameter("pNomeUsuario", nomeUsuario);
+        if (query.getResultList().size() > 0){
+            return false;
+        } else {
+            return true;
+        }
+    }    
 
 }

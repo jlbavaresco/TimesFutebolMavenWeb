@@ -9,12 +9,12 @@
               modal="true" width="50%" height="100%">
         <h:form id="formEdicao" prependId="false">
             <p:growl id="growl"/>
-            <p:tabView id="tab">
-                <p:tab title="Dados Principais">
+            <p:tabView id="tab" activeIndex="#{controleTime.abaAtiva}">
+                <p:tab title="Dados Principais" >
                     <div align="center">
                         <p:panelGrid columns="2">
                             <p:outputLabel value="ID"/>
-                            <p:inputText validator="#{controleTime.objeto.id}"
+                            <p:inputText value="#{controleTime.objeto.id}"
                                          size="5" readonly="true"/>
                             <p:outputLabel value="Nome" for="txtNome"/>
                             <p:inputText id="txtNome" value="#{controleTime.objeto.nome}"
