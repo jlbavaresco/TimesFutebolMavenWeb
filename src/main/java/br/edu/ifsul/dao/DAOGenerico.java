@@ -4,6 +4,8 @@ import br.edu.ifsul.converters.ConverterOrdem;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -13,6 +15,7 @@ import javax.persistence.PersistenceContext;
  * @email jorgebavaresco@ifsul.edu.br
  * @organization IFSUL - Campus Passo Fundo
  */
+@Stateless
 public class DAOGenerico<TIPO> implements Serializable {
 
     private List<TIPO> listaObjetos;
@@ -115,6 +118,7 @@ public class DAOGenerico<TIPO> implements Serializable {
         em.merge(obj);
     }
 
+    @RolesAllowed("ADMINISTRADOR")
     public void remove(TIPO obj) throws Exception {
         obj = em.merge(obj);
         em.remove(obj);

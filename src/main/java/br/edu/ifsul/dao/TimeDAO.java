@@ -29,6 +29,7 @@ public class TimeDAO<TIPO>  extends DAOGenerico<Time> implements Serializable {
         converterOrdem.setListaOrdem(listaOrdem);                        
     }
     
+    @Override
     public Time getObjectByID(Object id) throws Exception {
         Time obj = em.find(Time.class, id);
         // uso para evitar o erro de lazy inicialization exception
