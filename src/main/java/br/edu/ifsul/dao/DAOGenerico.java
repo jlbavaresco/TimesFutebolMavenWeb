@@ -15,7 +15,6 @@ import javax.persistence.PersistenceContext;
  * @email jorgebavaresco@ifsul.edu.br
  * @organization IFSUL - Campus Passo Fundo
  */
-@Stateless
 public class DAOGenerico<TIPO> implements Serializable {
 
     private List<TIPO> listaObjetos;
