@@ -141,7 +141,7 @@
 				<reportElement x="10" y="60" width="540" height="30" uuid="6b7e2e50-4103-49a6-9933-87945c032d72">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="af5c1fdc-4baf-4a95-a918-3273a311d300"/>
 				</reportElement>
-				<textElement markup=""/>
+				<textElement markup="html"/>
 				<textFieldExpression><![CDATA[$F{historia}]]></textFieldExpression>
 			</textField>
 			<staticText>
